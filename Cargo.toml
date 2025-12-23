@@ -1,0 +1,14 @@
+[package]
+name = "driver-5011as"
+description = "A simple driver for the 5011as 7-segment display using `embedded-hal`."
+keywords = ["embedded-hal", "driver"]
+categories = ["embedded", "no-std"]
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+homepage = "https://github.com/TgZ39/driver-5011as"
+repository = "https://github.com/TgZ39/driver-5011as"
+readme = "README.md"
+
+[dependencies]
+embedded-hal = "1.0.0"
