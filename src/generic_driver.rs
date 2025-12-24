@@ -1,5 +1,5 @@
-use embedded_hal::digital::{Error, OutputPin, PinState};
 use crate::interface::LED5011ASDriver;
+use embedded_hal::digital::{Error, OutputPin, PinState};
 
 /// A generic driver for the 5011as 7-segment display.
 pub struct GenericLED5011AS<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp> {
@@ -14,7 +14,7 @@ pub struct GenericLED5011AS<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp>
 }
 
 impl<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp, E>
-GenericLED5011AS<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp>
+    GenericLED5011AS<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp>
 where
     PinA: OutputPin<Error = E>,
     PinB: OutputPin<Error = E>,
@@ -24,7 +24,6 @@ where
     PinF: OutputPin<Error = E>,
     PinG: OutputPin<Error = E>,
     PinDp: OutputPin<Error = E>,
-
     E: Error,
 {
     /// Creates a new generic driver instance for a 5011as 7-segment display using [this](https://components101.com/sites/default/files/component_pin/7-segment-display-pin-diagr_0.png) layout for the 8 pins.
@@ -85,7 +84,8 @@ where
     }
 }
 
-impl<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp, E> LED5011ASDriver for GenericLED5011AS<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp>
+impl<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp, E> LED5011ASDriver
+    for GenericLED5011AS<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp>
 where
     PinA: OutputPin<Error = E>,
     PinB: OutputPin<Error = E>,

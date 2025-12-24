@@ -51,12 +51,12 @@
 
 #![no_std]
 
-pub use interface::LED5011ASDriver;
 pub use generic_driver::GenericLED5011AS;
+pub use interface::LED5011ASDriver;
 pub use simple_driver::LED5011AS;
 
-mod interface;
 mod generic_driver;
+mod interface;
 mod simple_driver;
 
 const DIGITS: [u8; 10] = [

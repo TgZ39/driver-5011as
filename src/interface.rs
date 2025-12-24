@@ -1,5 +1,5 @@
-use embedded_hal::digital::{Error, PinState};
 use crate::DIGITS;
+use embedded_hal::digital::{Error, PinState};
 
 pub trait LED5011ASDriver {
     type Error: Error;

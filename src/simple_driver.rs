@@ -1,14 +1,14 @@
-use embedded_hal::digital::{Error, OutputPin, PinState};
 use crate::interface::LED5011ASDriver;
+use embedded_hal::digital::{Error, OutputPin, PinState};
 
 pub struct LED5011AS<'a, Pin> {
-    segments: [&'a mut Pin; 8]
+    segments: [&'a mut Pin; 8],
 }
 
 impl<'a, Pin, E> LED5011AS<'a, Pin>
 where
     Pin: OutputPin<Error = E>,
-    E: Error
+    E: Error,
 {
     /// Creates a new driver instance for a 5011as 7-segment display using [this](https://components101.com/sites/default/files/component_pin/7-segment-display-pin-diagr_0.png) layout for the 8 pins.
     ///
@@ -53,14 +53,16 @@ where
         g: &'a mut Pin,
         dp: &'a mut Pin,
     ) -> Self {
-        Self { segments: [a, b, c, d, e, f, g, dp] }
+        Self {
+            segments: [a, b, c, d, e, f, g, dp],
+        }
     }
 }
 
 impl<'a, Pin, E> LED5011ASDriver for LED5011AS<'a, Pin>
 where
     Pin: OutputPin<Error = E>,
-    E: Error
+    E: Error,
 {
     type Error = E;
 
