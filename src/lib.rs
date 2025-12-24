@@ -50,6 +50,7 @@
 //! [`OutputPin<'_>`]: embedded_hal::digital::OutputPin
 
 #![no_std]
+#![allow(clippy::too_many_arguments)]
 
 pub use generic_driver::GenericLED5011AS;
 pub use interface::LED5011ASDriver;
