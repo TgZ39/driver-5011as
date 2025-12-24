@@ -11,6 +11,16 @@ This crate provides 2 drivers for the display:
 - `LED5011AS`: Use this if all your pins have the same type (e.g. [`OutputPin<'_>`])
 - `GenericLED5011AS`: Use this if your pins don't have the same type (e.g. [`OutputPin<'_>`] and `Flex<'_>` (from esp-hal))
 
+This is the pin layout for the display:
+<p align="center">
+    <img 
+    src="https://components101.com/sites/default/files/component_pin/7-segment-display-pin-diagr_0.png"
+    alt="5011as pinout"
+    style="max-width: 200px; width: 40%; height: auto;"
+  >
+</p>
+
+
 ## Usage
 
 For this example I'm using an ESP32 C6 with `esp-hal` with the `LED5011AS` driver.
