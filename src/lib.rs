@@ -34,13 +34,13 @@
 //!
 //! // set a digit
 //! display.set_digit(3)?;
-//! display.set_digit(7)?; // overrides the '3' so you don't have to clear the display inbetween
+//! display.set_digit(7)?;  // overrides the '3' so you don't have to clear the display inbetween
 //!
 //! // clear the display
 //! display.clear()?;
 //!
 //! // write a custom figure to the display
-//! display.write_byte(0b01110111)?; // writes an 'A' to the display
+//! display.write_byte(0b01110111)?;    // writes an 'A' to the display
 //! ```
 
 #![no_std]
@@ -176,6 +176,7 @@ where
     /// display.write_byte(0b00000110)?;   // writes '1' to the display without dp
     /// display.write_byte(0b01101101)?;   // writes '5' to the display without dp
     /// display.write_byte(0b11101111)?;   // writes '9' to the display with dp
+    /// display.write_byte(0b01110111)?;   // writes an 'A' to the display
     /// ```
     /// [`set_digit`]: Self::set_digit
     pub fn write_byte(&mut self, data: u8) -> Result<(), E> {
