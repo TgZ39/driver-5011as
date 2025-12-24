@@ -1,9 +1,13 @@
 //! This library provides a very simple driver for the 5011as 7-segment display.
 //! The layout for the pins is the following: https://components101.com/sites/default/files/component_pin/7-segment-display-pin-diagr_0.png
 //!
+//! This crate provides 2 drivers for the 5011as:
+//! - [`LED5011AS`]\: Use this if all your pins have the same type (e.g. [`OutputPin<'_>`])
+//! - [`GenericLED5011AS`]: Use this if your pins don't have the same type (e.g. [`OutputPin<'_>`] and `Flex<'_>` (from esp-hal))
+//!
 //! # Usage
 //!
-//! For this example I'm using an ESP32 with `esp-hal`.
+//! For this example I'm using an ESP32 with `esp-hal` with the [`LED5011AS`] driver.
 //!
 //! ```rust
 //! // setup pins
@@ -42,6 +46,8 @@
 //! // write a custom figure to the display
 //! display.write_byte(0b01110111)?;    // writes an 'A' to the display
 //! ```
+//!
+//! [`OutputPin<'_>`]: embedded_hal::digital::OutputPin
 
 #![no_std]
 

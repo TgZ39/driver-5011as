@@ -1,7 +1,7 @@
 use embedded_hal::digital::{Error, OutputPin, PinState};
 use crate::interface::LED5011ASDriver;
 
-/// A driver for the 5011as 7-segment display.
+/// A generic driver for the 5011as 7-segment display.
 pub struct GenericLED5011AS<'a, PinA, PinB, PinC, PinD, PinE, PinF, PinG, PinDp> {
     a: &'a mut PinA,
     b: &'a mut PinB,
@@ -29,9 +29,11 @@ where
 {
     /// Creates a new generic driver instance for a 5011as 7-segment display using [this](https://components101.com/sites/default/files/component_pin/7-segment-display-pin-diagr_0.png) layout for the 8 pins.
     ///
-    /// The advantage of using the generic driver is that the pins don't all need to be that same type.
-    /// So e.g. pin a can be of type `OutputPin<'_>` while pin b can be of type `Flex<'_>`.
-    /// The downside of this is that this struct is that it defines 8 generic types which is cumbersome when using this driver as a field in another struct.
+    /// The advantage of using the generic driver is that the pins don't all have to be of the same type.
+    /// Fox example pin a can be of type `OutputPin<'_>` while pin b can be of type `Flex<'_>`.
+    /// The downside of this approach is that this struct defines 8 generic types which is cumbersome when using this driver as a field in another struct because the parent has to define these generics as well.
+    ///
+    /// If all your pins are the same type see [`LED5011AS`] instead.
     ///
     /// # Examples
     ///
@@ -58,6 +60,8 @@ where
     ///     &mut dp,
     /// );
     /// ```
+    ///
+    /// [`LED5011AS`]: crate::simple_driver::LED5011AS
     pub fn new(
         a: &'a mut PinA,
         b: &'a mut PinB,
