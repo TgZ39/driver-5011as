@@ -1,5 +1,5 @@
 //! This library provides a very simple driver for the 5011as 7-segment display.
-//! The layout for the pins is the following: https://www.lanpade.com/image/led/5011as_d.jpg
+//! The layout for the pins is the following: https://components101.com/sites/default/files/component_pin/7-segment-display-pin-diagr_0.png
 //!
 //! # Usage
 //!
@@ -78,7 +78,7 @@ where
     PinDp: OutputPin<Error = E>,
     E: Error,
 {
-    /// Creates a new driver instance for a 5011as 7-segment display using [this](https://www.lanpade.com/image/led/5011as_d.jpg) layout for the 8 pins.
+    /// Creates a new driver instance for a 5011as 7-segment display using [this](https://components101.com/sites/default/files/component_pin/7-segment-display-pin-diagr_0.png) layout for the 8 pins.
     ///
     /// # Examples
     ///
